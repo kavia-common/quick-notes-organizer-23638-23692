@@ -1,18 +1,14 @@
-# vue-kavia
+# Quick Notes — Ocean Professional (Vue 3 + Vite)
 
-This template should help get you started developing with Vue 3 in Vite.
+A minimalist notes app frontend allowing users to create, read, update, and delete personal notes.
+Styled with the Ocean Professional theme (blue & amber accents, subtle gradients, rounded corners, and soft shadows).
+Notes persist locally via localStorage.
 
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
+## Tech
+- Vue 3, TypeScript
+- Pinia (state)
+- Vue Router
+- Vite
 
 ## Project Setup
 
@@ -20,26 +16,28 @@ See [Vite Configuration Reference](https://vite.dev/config/).
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### Development
 
 ```sh
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+Open the served URL and start capturing your ideas.
+
+### Build
 
 ```sh
 npm run build
 ```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-npm run test:unit
-```
-
-### Lint with [ESLint](https://eslint.org/)
+### Lint
 
 ```sh
 npm run lint
 ```
+
+## Notes
+- No backend required; data persists in localStorage (`notes_app_v1`).
+- Layout:
+  - Sidebar: search, new note, list with favorites prioritization
+  - Main: note title and actions toolbar, note content editor with autosave

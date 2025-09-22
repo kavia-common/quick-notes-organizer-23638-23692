@@ -1,85 +1,97 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import { RouterView } from 'vue-router'
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+  <div class="app-shell">
+    <header class="app-header">
+      <div class="brand">
+        <div class="logo">✦</div>
+        <div class="title">
+          <h1>Quick Notes</h1>
+          <p>Capture ideas. Stay organized.</p>
+        </div>
+      </div>
+    </header>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
-  <RouterView />
+    <main class="app-main">
+      <RouterView />
+    </main>
+  </div>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
+/* Ocean Professional Theme Tokens */
+:root {
+  --ocean-primary: #2563EB;
+  --ocean-secondary: #F59E0B;
+  --ocean-error: #EF4444;
+  --ocean-bg: #f9fafb;
+  --ocean-surface: #ffffff;
+  --ocean-text: #111827;
+
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+
+  --shadow-sm: 0 1px 2px rgba(17, 24, 39, 0.06), 0 1px 1px rgba(17, 24, 39, 0.04);
+  --shadow-md: 0 6px 18px rgba(37, 99, 235, 0.08), 0 2px 6px rgba(17, 24, 39, 0.06);
+}
+
+.app-shell {
+  min-height: 100vh;
+  background: linear-gradient(180deg, rgba(59,130,246,0.08), rgba(249,250,251,1) 22%, rgba(249,250,251,1));
+  color: var(--ocean-text);
+}
+
+/* Header */
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: saturate(160%) blur(6px);
+  background: linear-gradient(90deg, rgba(37, 99, 235, 0.10), rgba(255,255,255,0.7));
+  border-bottom: 1px solid rgba(17, 24, 39, 0.06);
+}
+
+.brand {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .logo {
-  display: block;
-  margin: 0 auto 2rem;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(37,99,235,0.95), rgba(59,130,246,0.75));
+  color: white;
+  display: grid;
+  place-items: center;
+  box-shadow: var(--shadow-md);
+  font-size: 18px;
 }
 
-nav {
-  width: 100%;
+.title h1 {
+  font-size: 18px;
+  letter-spacing: 0.2px;
+  color: var(--ocean-text);
+  margin: 0;
+}
+
+.title p {
+  margin: 0;
   font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
+  color: rgba(17, 24, 39, 0.6);
 }
 
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
+/* Main */
+.app-main {
+  max-width: 1200px;
+  margin: 18px auto;
+  padding: 0 16px 28px;
 }
 </style>
